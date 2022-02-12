@@ -3,7 +3,9 @@
 
 ## this project is my dart / flutter playground to play around with all of what I've learned
 <br>
+
 ---
+
 <br>
 <br>
 
