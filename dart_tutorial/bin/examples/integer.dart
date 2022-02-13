@@ -1,6 +1,4 @@
-import 'classes.dart';
-
-void printInteger(int mNumber) {
+int printInteger(int mNumber) {
   dynamic value;
   if (mNumber % 2 == 0) {
     value = "even";
@@ -13,4 +11,5 @@ void printInteger(int mNumber) {
   // }
 
   print('The number is $value : $mNumber.'); // ? Print to console.
+  return mNumber;
 }
