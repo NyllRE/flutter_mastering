@@ -1,6 +1,7 @@
 // ? Importing libraries
 // * import 'dart:math';
 import 'examples/arrow_function.dart';
+import 'examples/calculator_package.dart';
 import 'examples/classes.dart';
 import 'examples/integer.dart';
 
@@ -9,15 +10,17 @@ import 'examples/integer.dart';
 // todo: main(): The special, required, top-level function where app execution starts.
 
 void main() {
-  var number = 1998; // ? Declare and initialize a variable.
-  printInteger(number); // ? Call a function.
-  print(fibonacci(25));
+  // var number = 1998; // ? Declare and initialize a variable.
+  // printInteger(number); // ? Call a function.
+  // print(fibonacci(25));
 
-  // ? class call
-  var voyager = Spacecraft('ReJect', DateTime(2016, 9, 5));
-  voyager.describe();
-  arrowFunction();
-  Orbiter('Voyager I', DateTime(1977, 9, 5), 54.8).describe();
+  // // ? class call
+  // var voyager = Spacecraft('ReJect', DateTime(2016, 9, 5));
+  // voyager.describe();
+  // arrowFunction();
+  // Orbiter('Voyager I', DateTime(1977, 9, 5), 54.8).describe();
+
+  print("calculate() ${calculate()}");
 }
 
 int fibonacci(int n) {
