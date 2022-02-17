@@ -1,9 +1,9 @@
 // ? Importing libraries
 // * import 'dart:math';
-import 'examples/arrow_function.dart';
+// import 'examples/arrow_function.dart';
+// import 'examples/classes.dart';
+// import 'examples/integer.dart';
 import 'examples/calculator_package.dart';
-import 'examples/classes.dart';
-import 'examples/integer.dart';
 
 // todo: void : A special type that indicates a value that’s never used. Functions like printInteger() and main() that don’t explicitly return a value have the void return type
 
