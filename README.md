@@ -1,14 +1,16 @@
-# Nyll's Dart Playground
-<br>
+# flutter_mastering
 
-## this project is my dart / flutter playground to play around with all of what I've learned
+A new Flutter project.
 
----
+## Getting Started
 
-<br>
+This project is a starting point for a Flutter application.
 
-all of the code put in this codebase is taken from [Dart's Documentation](https://dart.dev/guides) and from [Flutter's Documentation](https://flutter.dev/) so I'd suggest you learn from them and take this project as reference
+A few resources to get you started if this is your first Flutter project:
 
-<br>
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-this codebase contains heavy documentation to every part of the code, with comments beautified by [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments) so I highly recommend you install this extension in general
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
