@@ -5,24 +5,10 @@
    "version": "0.2.0",
    "configurations": [
       {
-         "name": "flutter_mastering",
-         "cwd": "flutter_mastering",
-         "request": "launch",
+         "name": "Flutter",
          "type": "dart",
+         "request": "launch",
          "program": "lib/main.dart"
-      },
-      {
-         "name": "start",
-         "cwd": "start",
-         "request": "launch",
-         "type": "dart"
-      },
-      {
-         "name": "start (profile mode)",
-         "cwd": "start",
-         "request": "launch",
-         "type": "dart",
-         "flutterMode": "profile"
       }
    ]
 }
