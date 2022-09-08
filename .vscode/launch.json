@@ -5,11 +5,11 @@
    "version": "0.2.0",
    "configurations": [
       {
-         "name": "dart_tutorial",
-         "cwd": "dart_tutorial",
+         "name": "flutter_mastering",
+         "cwd": "flutter_mastering",
          "request": "launch",
          "type": "dart",
-         "program": "bin/dart_tutorial.dart"
+         "program": "lib/main.dart"
       },
       {
          "name": "start",
