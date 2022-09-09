@@ -53,9 +53,9 @@ class RangeSelectorField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      decoration: const InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: 'asdf',
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(),
+        labelText: labelText,
       ),
       keyboardType: const TextInputType.numberWithOptions(
         decimal: false,
