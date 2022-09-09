@@ -14,6 +14,7 @@ class RangeSelectorPage extends StatefulWidget {
 }
 
 class _RangeSelectorPageState extends State<RangeSelectorPage> {
+  final formKey = GlobalKey<FormState>();
   int _min = 0;
   int _max = 0;
 
@@ -24,6 +25,7 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
           title: const Text('Select Range'),
         ),
         body: Form(
+          key: formKey,
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -46,6 +48,8 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
           child: const Icon(Icons.arrow_forward),
           onPressed: () => {
             //==<< Validate the form >>==//
+            if (formKey.currentState?.validate() == true)
+              {formKey.currentState?.save()}
           },
         ));
   }
