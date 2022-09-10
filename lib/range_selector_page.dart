@@ -15,7 +15,9 @@ class RangeSelectorPage extends StatefulWidget {
 
 class _RangeSelectorPageState extends State<RangeSelectorPage> {
   final formKey = GlobalKey<FormState>();
+  // ignore: unused_field
   int _min = 0;
+  // ignore: unused_field
   int _max = 0;
 
   @override
@@ -50,6 +52,7 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
             //==<< Validate the form >>==//
             if (formKey.currentState?.validate() == true)
               {formKey.currentState?.save()}
+            //==<< Navigate to generator page >>==//
           },
         ));
   }
