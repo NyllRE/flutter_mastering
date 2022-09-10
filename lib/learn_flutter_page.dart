@@ -60,6 +60,20 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
               debugPrint('deez');
             },
             child: const Text('Text Button'),
+          ),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () => debugPrint('deez'),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: const [
+                Icon(Icons.local_fire_department),
+                Text(
+                  'Row Widget',
+                ),
+                Icon(Icons.local_fire_department, color: Colors.red),
+              ],
+            ),
           )
         ],
       ),
