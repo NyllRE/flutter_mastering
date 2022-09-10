@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'learn_flutter_page.dart';
+
 class HourPage extends StatefulWidget {
   const HourPage({Key? key}) : super(key: key);
 
@@ -10,15 +12,18 @@ class HourPage extends StatefulWidget {
 class _HourPageState extends State<HourPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('br'),
-      ),
-      floatingActionButton: FloatingActionButton(
+    return Center(
+      child: ElevatedButton(
         onPressed: () {
-          debugPrint('floating action button');
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (BuildContext context) {
+                return const LearnFlutterPage();
+              },
+            ),
+          );
         },
-        child: const Icon(Icons.arrow_forward_ios),
+        child: const Text('Learn Flutter'),
       ),
     );
   }

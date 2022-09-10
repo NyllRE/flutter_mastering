@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: RootPage(),
+      home: const RootPage(),
     );
   }
 }
@@ -34,7 +34,17 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('br'),
+      ),
+
       body: const HourPage(),
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.arrow_forward_ios),
+      ),
+
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(
@@ -46,11 +56,13 @@ class _RootPageState extends State<RootPage> {
             label: 'profile',
           ),
         ],
+    
         onDestinationSelected: (int idx) {
           setState(() {
             currentPage = idx;
           });
         },
+
         selectedIndex: currentPage,
       ),
     );
