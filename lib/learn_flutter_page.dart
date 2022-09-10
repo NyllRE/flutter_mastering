@@ -8,6 +8,7 @@ class LearnFlutterPage extends StatefulWidget {
 }
 
 class _LearnFlutterPageState extends State<LearnFlutterPage> {
+  bool isSwitched = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +45,9 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
             ),
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              primary: isSwitched ? Colors.green : Colors.blue,
+            ),
             onPressed: () {
               debugPrint('deez');
             },
@@ -74,7 +78,15 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
                 Icon(Icons.local_fire_department, color: Colors.red),
               ],
             ),
-          )
+          ),
+          Switch(
+            value: isSwitched,
+            onChanged: (bool newVal) {
+              setState(() {
+                isSwitched = newVal;
+              });
+            },
+          ),
         ],
       ),
     );
