@@ -23,6 +23,13 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
       body: Column(
         children: [
           Image.asset('images/heisenburger.png'),
+
+          const SizedBox(
+            height: 10,
+          ),
+          const Divider(
+            color: Colors.black,
+          )
         ],
       ),
     );
