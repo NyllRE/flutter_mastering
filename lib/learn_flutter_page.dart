@@ -97,7 +97,8 @@ class _LearnFlutterPageState extends State<LearnFlutterPage> {
                     setState(() {
                       isCheckbox = newBool;
                     });
-                  }),
+                },
+              ),
               Image.network(
                   'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fjooinn.com%2Fimages%2Fgrayscale-mountain-photo-5.jpg')
             ],

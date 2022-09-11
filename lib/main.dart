@@ -1,5 +1,9 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mastering/hour_tutorial.dart';
+import 'package:flutter_mastering/profile_page.dart';
 import './range_selector_page.dart';
 
 void main() {
@@ -30,21 +34,23 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int currentPage = 0;
+  int currentPage = 1;
+  List<Widget> pages = const [
+    HourPage(),
+    ProfilePage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('br'),
+        title: const Text('Flutter Mastering'),
       ),
-
-      body: const HourPage(),
-
+      body: pages[currentPage],
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.arrow_forward_ios),
       ),
-
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(
@@ -56,13 +62,11 @@ class _RootPageState extends State<RootPage> {
             label: 'profile',
           ),
         ],
-    
         onDestinationSelected: (int idx) {
           setState(() {
             currentPage = idx;
           });
         },
-
         selectedIndex: currentPage,
       ),
     );
