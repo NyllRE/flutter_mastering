@@ -38,6 +38,7 @@ class _RootPageState extends State<RootPage> {
   List<Widget> pages = const [
     HourPage(),
     ProfilePage(),
+    RangeSelectorPage(),
   ];
 
   @override
@@ -60,6 +61,10 @@ class _RootPageState extends State<RootPage> {
           NavigationDestination(
             icon: Icon(Icons.person),
             label: 'profile',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.book),
+            label: 'form',
           ),
         ],
         onDestinationSelected: (int idx) {
