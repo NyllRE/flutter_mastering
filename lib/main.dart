@@ -52,27 +52,34 @@ class _RootPageState extends State<RootPage> {
         onPressed: () {},
         child: const Icon(Icons.arrow_forward_ios),
       ),
-      bottomNavigationBar: NavigationBar(
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home),
-            label: 'home',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.person),
-            label: 'profile',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.book),
-            label: 'form',
-          ),
-        ],
-        onDestinationSelected: (int idx) {
-          setState(() {
-            currentPage = idx;
-          });
-        },
-        selectedIndex: currentPage,
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(
+          indicatorColor: Colors.white.withOpacity(0.4),
+        ),
+        child: NavigationBar(
+          backgroundColor: Colors.teal,
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          destinations: const [
+            NavigationDestination(
+              icon: Icon(Icons.home),
+              label: 'home',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person),
+              label: 'profile',
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.book),
+              label: 'form',
+            ),
+          ],
+          onDestinationSelected: (int idx) {
+            setState(() {
+              currentPage = idx;
+            });
+          },
+          selectedIndex: currentPage,
+        ),
       ),
     );
   }
