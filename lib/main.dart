@@ -1,6 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mastering/hour_tutorial.dart';
 import 'package:flutter_mastering/profile_page.dart';
@@ -34,7 +33,7 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int currentPage = 1;
+  int currentPage = 0;
   List<Widget> pages = const [
     HourPage(),
     ProfilePage(),
