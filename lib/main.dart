@@ -47,10 +47,10 @@ class _RootPageState extends State<RootPage> {
         title: const Text('Flutter Mastering'),
       ),
       body: pages[currentPage],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.arrow_forward_ios),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      //   child: const Icon(Icons.arrow_forward_ios),
+      // ),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
           indicatorColor: Colors.white.withOpacity(0.4),
