@@ -28,8 +28,9 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
           child: const Icon(Icons.arrow_forward),
           onPressed: () => {
             //==<< Validate the form >>==//
-            if (formKey.currentState?.validate() == true)
+            if (formKey.currentState?.validate() == true && _min <= _max)
               {
+                debugPrint('${_min <= _max}'),
                 formKey.currentState?.save(),
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -42,6 +43,7 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
               },
             //==<< Navigate to generator page >>==//
             debugPrint('$_min - $_max'),
+            // debugPrint('${_min <= _max ?? true}'),
           },
         ));
   }

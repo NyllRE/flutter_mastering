@@ -57,7 +57,7 @@ class _RootPageState extends State<RootPage> {
         ),
         child: NavigationBar(
           backgroundColor: Colors.teal,
-          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          // labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           destinations: const [
             NavigationDestination(
               icon: Icon(Icons.home),
