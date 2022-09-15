@@ -1,9 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/hour_tutorial.dart';
-import 'package:flutter_mastering/profile_page.dart';
-import './range_selector_page.dart';
+import 'package:flutter_mastering/udemy_course/udemy_course_app.dart';
+import 'starter_tutorials/starter_tutorial_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Randomizer',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.lightGreen,
       ),
       home: const RootPage(),
     );
@@ -33,52 +31,39 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int currentPage = 0;
-  List<Widget> pages = const [
-    HourPage(),
-    ProfilePage(),
-    RangeSelectorPage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Mastering'),
+        title: const Text('Flutter Master Apps'),
       ),
-      body: pages[currentPage],
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {},
-      //   child: const Icon(Icons.arrow_forward_ios),
-      // ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          indicatorColor: Colors.white.withOpacity(0.4),
-        ),
-        child: NavigationBar(
-          backgroundColor: Colors.teal,
-          // labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.home),
-              label: 'home',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person),
-              label: 'profile',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.book),
-              label: 'form',
-            ),
-          ],
-          onDestinationSelected: (int idx) {
-            setState(() {
-              currentPage = idx;
-            });
-          },
-          selectedIndex: currentPage,
-        ),
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          OutlinedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const StarterTutorialApp();
+                  },
+                ),
+              );
+            },
+            child: const Text('First App'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const UdemyCourseApp();
+                  },
+                ),
+              );
+            },
+            child: const Text('Udemy Course App'),
+          ),
+        ]),
       ),
     );
   }

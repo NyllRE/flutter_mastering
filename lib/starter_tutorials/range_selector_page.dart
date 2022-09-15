@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/randomizer_page.dart';
-import 'package:flutter_mastering/range_selector_form.dart';
-
+import 'package:flutter_mastering/starter_tutorials/randomizer_page.dart';
+import 'package:flutter_mastering/starter_tutorials/range_selector_form.dart';
 
 class RangeSelectorPage extends StatefulWidget {
   const RangeSelectorPage({Key? key}) : super(key: key);
@@ -22,7 +21,7 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
         body: RangeSelectorForm(
           formKey: formKey,
           minValueSetter: (int value) => _min = value,
-          maxValueSetter: (int value) => _max = value, 
+          maxValueSetter: (int value) => _max = value,
         ),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.arrow_forward),
@@ -48,4 +47,3 @@ class _RangeSelectorPageState extends State<RangeSelectorPage> {
         ));
   }
 }
-
