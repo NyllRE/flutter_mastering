@@ -20,7 +20,7 @@ class RandomizerPage extends StatefulWidget {
 class _RandomizerPageState extends State<RandomizerPage> {
   int? _generatedNumber;
   final randomNumber = Random();
-  bool? _isUnstable;
+  bool _isUnstable = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +37,9 @@ class _RandomizerPageState extends State<RandomizerPage> {
               style: const TextStyle(fontSize: 42),
             ),
             Text(
-              _isUnstable?.toString() ??
-                  'Min is higher than max\nplease return and fix the issue',
+              _isUnstable
+                  ? 'Min is higher than max\nplease return and fix the issue'
+                  : '',
               style: const TextStyle(color: Colors.red),
             )
           ],
