@@ -2,10 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const UdemyCourseApp());
-}
-
 class UdemyCourseApp extends StatelessWidget {
   const UdemyCourseApp({Key? key}) : super(key: key);
 
@@ -33,10 +29,20 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Udemy Course'),
+        title: Text('Udemy Course'),
       ),
-      body: const Center(
-        child: Text('the start of the udemy course'),
+      body: Column(
+        children: [
+          Center(
+            child: Text('the start of the udemy course'),
+          ),
+          ElevatedButton(
+            child: Text('ball'),
+            onPressed: () {
+              debugPrint('balls?!!!');
+            },
+          )
+        ],
       ),
     );
   }

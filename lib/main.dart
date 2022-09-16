@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mastering/udemy_course/udemy_course_app.dart';
 import 'starter_tutorials/starter_tutorial_app.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

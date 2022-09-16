@@ -5,9 +5,6 @@ import 'package:flutter_mastering/starter_tutorials/hour_tutorial.dart';
 import 'package:flutter_mastering/starter_tutorials/profile_page.dart';
 import 'range_selector_page.dart';
 
-void main() {
-  runApp(const StarterTutorialApp());
-}
 
 class StarterTutorialApp extends StatelessWidget {
   const StarterTutorialApp({Key? key}) : super(key: key);
