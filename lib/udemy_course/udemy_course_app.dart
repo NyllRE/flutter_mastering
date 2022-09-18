@@ -49,9 +49,8 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: Text('Udemy Course'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Question(questions[qIdx]),
             ElevatedButton(
@@ -64,7 +63,6 @@ class _RootPageState extends State<RootPage> {
               },
             )
           ],
-        ),
       ),
     );
   }
