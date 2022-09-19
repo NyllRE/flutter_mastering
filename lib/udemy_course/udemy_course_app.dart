@@ -66,6 +66,11 @@ class _RootPageState extends State<RootPage> {
     });
   }
 
+  void _resetQ() => setState(() {
+        _totalScore = 0;
+        qIdx = 0;
+      });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +79,7 @@ class _RootPageState extends State<RootPage> {
       ),
       body: qIdx < questions.length
           ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
-          : Result(total: _totalScore),
+          : Result(total: _totalScore, reset: _resetQ),
     );
   }
 }

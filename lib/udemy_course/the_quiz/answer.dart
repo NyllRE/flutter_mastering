@@ -12,9 +12,18 @@ class Answer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: selectHandler,
-      child: Text(answerText),
+    return Container(
+      margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+      child: ElevatedButton(
+        child: Text(answerText),
+        onPressed: selectHandler,
+        style: ElevatedButton.styleFrom(
+          fixedSize: const Size(
+            250,
+            30,
+          ),
+        ),
+      ),
     );
   }
 }
