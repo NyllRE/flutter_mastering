@@ -24,6 +24,9 @@ class Result extends StatelessWidget {
             OutlinedButton(
               child: Text('Try Again?'),
               onPressed: reset,
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Colors.green),
+              ),
             )
           ],
         ),
