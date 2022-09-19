@@ -1,9 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'answer.dart';
-import 'question.dart';
-import 'quiz.dart';
+import 'package:flutter_mastering/udemy_course/the_quiz/result.dart';
+import 'the_quiz/answer.dart';
+import 'the_quiz/question.dart';
+import 'the_quiz/quiz.dart';
 
 class UdemyCourseApp extends StatelessWidget {
   const UdemyCourseApp({Key? key}) : super(key: key);
@@ -33,20 +34,32 @@ class _RootPageState extends State<RootPage> {
   static const questions = <Map<String, dynamic>>[
     {
       'question': 'What is ball?',
-      'answers': ['nut', 'nutsack'],
+      'answers': [
+        {'text': 'nut', 'score': 1},
+        {'text': 'nutsack', 'score': 0},
+      ],
     },
     {
       'question': 'how to ball?',
-      'answers': ['prank call', 'meme compilation'],
+      'answers': [
+        {'text': 'football', 'score': 0},
+        {'text': 'George Floyd Mayweather', 'score': 1},
+      ],
     },
     {
       'question': 'can you ball?',
-      'answers': ['no', 'hell no'],
+      'answers': [
+        {'text': 'uh', 'score': 9},
+        {'text': 'um', 'score': 0},
+      ],
     },
   ];
 
-  void nextQ() {
+  int _totalScore = 0;
+
+  void nextQ(int score) {
     setState(() {
+      _totalScore += score;
       if (qIdx < questions.length) {
         qIdx += 1;
       }
@@ -57,11 +70,11 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Udemy Course'),
+        title: Text('Udemy Course $_totalScore'),
       ),
       body: qIdx < questions.length
           ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
-          : Center(child: Text('data')),
+          : Result(total: _totalScore),
     );
   }
 }

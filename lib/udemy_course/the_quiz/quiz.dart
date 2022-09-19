@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
-import 'question.dart';
+
 import 'answer.dart';
+import 'question.dart';
 
 class Quiz extends StatelessWidget {
   final List questions;
-  final VoidCallback next;
+  final Function next;
   final int qIdx;
 
   const Quiz({
@@ -19,8 +20,11 @@ class Quiz extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Question(questions[qIdx]['question']),
-          ...(questions[qIdx]['answers'] as List<String>)
-              .map((idx) => Answer(idx, next))
+          ...(questions[qIdx]['answers'] as List<Map<String, Object>>)
+              .map((ans) => Answer(
+                    ans['text'] as String,
+                    () => next(ans['score']),
+                  ))
               .toList(),
         ],
       );
