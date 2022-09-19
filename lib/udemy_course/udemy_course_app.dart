@@ -28,18 +28,18 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int qIdx = 0;
-  List questions = [
+  static const List<Map> questions = [
     {
       'question': 'What is ball?',
-      'answers': ['deez', 'nuts'],
+      'answers': ['nut', 'nutsack'],
     },
     {
       'question': 'how to ball?',
-      'answers': ['deez', 'nuts'],
+      'answers': ['prank call', 'meme compilation'],
     },
     {
       'question': 'can you ball?',
-      'answers': ['deez', 'nuts'],
+      'answers': ['no', 'hell no'],
     },
   ];
 
@@ -63,16 +63,9 @@ class _RootPageState extends State<RootPage> {
         mainAxisAlignment: MainAxisAlignment.center,
           children: [
           Question(questions[qIdx]['question']),
-          Answer(questions[qIdx]['answers'][0], () => nextQ()),
-          /* ElevatedButton(
-              child: Text(
-                'ball',
-              ),
-              onPressed: () {
-                nextQ();
-                debugPrint('$qIdx');
-              },
-            ) */
+          ...(questions[qIdx]['answers'] as List<String>)
+              .map((idx) => Answer(idx, nextQ))
+              .toList(),
           ],
       ),
     );
