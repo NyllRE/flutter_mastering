@@ -1,8 +1,9 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/udemy_course/answer.dart';
-import 'package:flutter_mastering/udemy_course/question.dart';
+import 'answer.dart';
+import 'question.dart';
+import 'quiz.dart';
 
 class UdemyCourseApp extends StatelessWidget {
   const UdemyCourseApp({Key? key}) : super(key: key);
@@ -28,7 +29,8 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int qIdx = 0;
-  static const List<Map> questions = [
+  // static const will make sure it doesn't change anywhere even here
+  static const questions = <Map<String, dynamic>>[
     {
       'question': 'What is ball?',
       'answers': ['nut', 'nutsack'],
@@ -45,9 +47,7 @@ class _RootPageState extends State<RootPage> {
 
   void nextQ() {
     setState(() {
-      if (qIdx >= questions.length - 1) {
-        qIdx = 0;
-      } else {
+      if (qIdx < questions.length) {
         qIdx += 1;
       }
     });
@@ -59,15 +59,9 @@ class _RootPageState extends State<RootPage> {
       appBar: AppBar(
         title: Text('Udemy Course'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-          Question(questions[qIdx]['question']),
-          ...(questions[qIdx]['answers'] as List<String>)
-              .map((idx) => Answer(idx, nextQ))
-              .toList(),
-          ],
-      ),
+      body: qIdx < questions.length
+          ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
+          : Center(child: Text('data')),
     );
   }
 }
