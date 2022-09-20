@@ -1,9 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/udemy_course/the_quiz/result.dart';
-import 'the_quiz/answer.dart';
-import 'the_quiz/question.dart';
+import 'the_quiz/result.dart';
+import 'package:flutter_mastering/reusable.dart';
 import 'the_quiz/quiz.dart';
 
 class UdemyCourseApp extends StatelessWidget {
@@ -32,7 +31,7 @@ class _RootPageState extends State<RootPage> {
   int qIdx = 0;
   int _totalScore = 0;
   String _textDisplay = 'unchanged';
-  // static const will make sure it doesn't change anywhere even here
+  // static const Matrix4.identity()..rotateZ(deg * 3.1415927 / 180will make sure it doesn't change anywhere even here
   static const questions = <Map<String, dynamic>>[
     {
       'question': 'What is ball?',
@@ -56,7 +55,6 @@ class _RootPageState extends State<RootPage> {
       ],
     },
   ];
-
 
   void nextQ(int score) {
     setState(() {
@@ -82,7 +80,20 @@ class _RootPageState extends State<RootPage> {
           ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
           : Result(total: _totalScore, reset: _resetQ),
       floatingActionButton: FloatingActionButton.extended(
-          label: Text(_textDisplay),
+          label: Transform(
+            alignment: Alignment.center,
+
+            //! Manual Declaration
+            // transform: Matrix4.identity()
+            //    ..rotateX(12 * pi / 180)
+            //    ..rotateY(20 * pi / 180)
+            //    ..rotateZ(50 * pi / 180)
+
+            //=> my Function
+            transform: myRotate(x: 12, y: 20, z: 50),
+
+            child: Text(_textDisplay),
+          ),
           onPressed: () {
             setState(() {
               _textDisplay = 'changed!';
