@@ -19,17 +19,24 @@ class Result extends StatelessWidget {
           children: [
             Text(
               resMessage,
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+              style: stResMessage,
             ),
             OutlinedButton(
               child: Text('Try Again?'),
               onPressed: reset,
-              style: OutlinedButton.styleFrom(
-                side: BorderSide(color: Colors.green),
-              ),
+              style: stRetry,
             ),
             //
           ],
         ),
       );
 }
+
+TextStyle stResMessage = const TextStyle(
+  fontSize: 40,
+  fontWeight: FontWeight.bold,
+);
+
+ButtonStyle stRetry = OutlinedButton.styleFrom(
+  side: BorderSide(color: Colors.green),
+);
