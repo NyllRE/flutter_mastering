@@ -30,6 +30,8 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int qIdx = 0;
+  int _totalScore = 0;
+  String _textDisplay = 'unchanged';
   // static const will make sure it doesn't change anywhere even here
   static const questions = <Map<String, dynamic>>[
     {
@@ -55,7 +57,6 @@ class _RootPageState extends State<RootPage> {
     },
   ];
 
-  int _totalScore = 0;
 
   void nextQ(int score) {
     setState(() {
@@ -80,6 +81,13 @@ class _RootPageState extends State<RootPage> {
       body: qIdx < questions.length
           ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
           : Result(total: _totalScore, reset: _resetQ),
+      floatingActionButton: FloatingActionButton.extended(
+          label: Text(_textDisplay),
+          onPressed: () {
+            setState(() {
+              _textDisplay = 'changed!';
+            });
+          }),
     );
   }
 }

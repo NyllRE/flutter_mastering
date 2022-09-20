@@ -27,7 +27,8 @@ class Result extends StatelessWidget {
               style: OutlinedButton.styleFrom(
                 side: BorderSide(color: Colors.green),
               ),
-            )
+            ),
+            //
           ],
         ),
       );
