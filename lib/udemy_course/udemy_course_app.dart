@@ -80,18 +80,8 @@ class _RootPageState extends State<RootPage> {
           ? Quiz(questions: questions, next: nextQ, qIdx: qIdx)
           : Result(total: _totalScore, reset: _resetQ),
       floatingActionButton: FloatingActionButton.extended(
-          label: Transform(
-            alignment: Alignment.center,
-
-            //! Manual Declaration
-            // transform: Matrix4.identity()
-            //    ..rotateX(12 * pi / 180)
-            //    ..rotateY(20 * pi / 180)
-            //    ..rotateZ(50 * pi / 180)
-
-            //=> my Function
-            transform: myRotate(x: 12, y: 20, z: 50),
-
+          label: Rotate(
+            z: _textDisplay == 'changed!' ? 180 : 0,
             child: Text(_textDisplay),
           ),
           onPressed: () {
