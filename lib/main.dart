@@ -1,7 +1,8 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/udemy_course/udemy_course_app.dart';
+import 'package:flutter_mastering/udemy_course/expenses/expenses_app.dart';
+import 'package:flutter_mastering/udemy_course/the_quiz/quiz_app.dart';
 import 'starter_tutorials/starter_tutorial_app.dart';
 
 void main() => runApp(const MyApp());
@@ -47,19 +48,31 @@ class _RootPageState extends State<RootPage> {
                 ),
               );
             },
-            child: const Text('First App'),
+            child: Text('First App'),
+          ),
+          OutlinedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) {
+                    return const QuizApp();
+                  },
+                ),
+              );
+            },
+            child: Text('Udemy Course App'),
           ),
           ElevatedButton(
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (BuildContext context) {
-                    return const UdemyCourseApp();
+                    return const ExpensesApp();
                   },
                 ),
               );
             },
-            child: const Text('Udemy Course App'),
+            child: Text('Expenses App'),
           ),
         ]),
       ),

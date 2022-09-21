@@ -1,12 +1,12 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'the_quiz/result.dart';
+import 'result.dart';
 import 'package:flutter_mastering/reusable.dart';
-import 'the_quiz/quiz.dart';
+import 'quiz.dart';
 
-class UdemyCourseApp extends StatelessWidget {
-  const UdemyCourseApp({Key? key}) : super(key: key);
+class QuizApp extends StatelessWidget {
+  const QuizApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -14,6 +14,7 @@ Matrix4 myRotate({
     ..setEntry(3, 2, 0.002);
 }
 
+/// Uses Transform Rotate to Rotate Through [x, y, z]
 class Rotate extends StatelessWidget {
   final Widget child;
   final double? x, y, z;
