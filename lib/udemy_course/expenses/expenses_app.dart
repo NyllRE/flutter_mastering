@@ -27,8 +27,11 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: Text('bruh')),
         body: Column(
-          children: const [
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
             Card(
+              color: Colors.blue[300], //=>> choose depth of color
               child: Text('bruh'),
               elevation: 5, //=> How high it feels >=> shadow depth
             ),
