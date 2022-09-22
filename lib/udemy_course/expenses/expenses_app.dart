@@ -29,8 +29,8 @@ class _RootPageState extends State<RootPage> {
     Transaction(id: 'or4', title: 'Yeezys', amount: 69.99),
   ];
 
-  String textInput = '';
-  String amountInput = '';
+  final titleCon = TextEditingController();
+  final amountCon = TextEditingController();
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -39,11 +39,6 @@ class _RootPageState extends State<RootPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Card(
-            //   color: Colors.blue[300], //=>> choose depth of color
-            //   child: Text('bruh'),
-            //   elevation: 5, //=> How high it feels >=> shadow depth
-            // ),
             Card(
                 elevation: 5,
                 child: Container(
@@ -51,14 +46,15 @@ class _RootPageState extends State<RootPage> {
                   child: Column(children: <Widget>[
                     TextField(
                       decoration: InputDecoration(labelText: 'Title'),
-                      onChanged: (val) => setState(() => textInput = val),
+                      controller: titleCon,
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: 'Amount'),
-                      onChanged: (val) => amountInput = val,
+                      controller: amountCon,
                     ),
                     TextButton(
-                      onPressed: () => debugPrint('$amountInput $textInput'),
+                      onPressed: () =>
+                          debugPrint('${titleCon.text} ${amountCon.text}'),
                       child: Text(
                         'Add Transaction',
                         style: TextStyle(color: Colors.purple),
