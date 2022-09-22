@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastering/udemy_course/expenses/transaction.dart';
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({Key? key}) : super(key: key);
@@ -23,6 +24,11 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
+  final List<Transaction> transactions = [
+    Transaction(id: 'or4', title: 'Yeezys', amount: 69.99),
+  ];
+
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: Text('bruh')),
@@ -35,8 +41,44 @@ class _RootPageState extends State<RootPage> {
               child: Text('bruh'),
               elevation: 5, //=> How high it feels >=> shadow depth
             ),
-            Card(
-              child: Text('List of TX'),
+            Column(
+              children: transactions
+                  .map((tx) => Card(
+                        child: Row(
+                          children: [
+                            Container(
+                              child: Text(
+                                '${tx.amount}',
+                                style: TextStyle(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
+                              margin: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 15,
+                              ),
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 15,
+                              ),
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Colors.purple,
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            Column(
+                              children: [
+                                Text(tx.title),
+                                Text(tx.date.toString()),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ))
+                  .toList(),
             ),
           ],
         ),
