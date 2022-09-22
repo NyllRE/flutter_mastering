@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastering/udemy_course/expenses/transaction.dart';
+import 'package:intl/intl.dart';
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({Key? key}) : super(key: key);
@@ -28,6 +29,8 @@ class _RootPageState extends State<RootPage> {
     Transaction(id: 'or4', title: 'Yeezys', amount: 69.99),
   ];
 
+  String textInput = '';
+  String amountInput = '';
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -36,24 +39,39 @@ class _RootPageState extends State<RootPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // Card(
+            //   color: Colors.blue[300], //=>> choose depth of color
+            //   child: Text('bruh'),
+            //   elevation: 5, //=> How high it feels >=> shadow depth
+            // ),
             Card(
-              color: Colors.blue[300], //=>> choose depth of color
-              child: Text('bruh'),
-              elevation: 5, //=> How high it feels >=> shadow depth
-            ),
+                elevation: 5,
+                child: Container(
+                  padding: EdgeInsets.all(10),
+                  child: Column(children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      onChanged: (val) => setState(() => textInput = val),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      onChanged: (val) => amountInput = val,
+                    ),
+                    TextButton(
+                      onPressed: () => debugPrint('$amountInput $textInput'),
+                      child: Text(
+                        'Add Transaction',
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    )
+                  ]),
+                )),
             Column(
               children: transactions
                   .map((tx) => Card(
                         child: Row(
                           children: [
                             Container(
-                              child: Text(
-                                '${tx.amount}',
-                                style: TextStyle(
-                                    color: Colors.purple,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 20),
-                              ),
                               margin: EdgeInsets.symmetric(
                                 vertical: 10,
                                 horizontal: 15,
@@ -68,11 +86,28 @@ class _RootPageState extends State<RootPage> {
                                   width: 2,
                                 ),
                               ),
+                              child: Text(
+                                '\$${tx.amount}',
+                                style: TextStyle(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20),
+                              ),
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(tx.title),
-                                Text(tx.date.toString()),
+                                Text(
+                                  tx.title,
+                                  style: TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  DateFormat('MM dd h:mm a').format(tx.date),
+                                  style: TextStyle(color: Colors.grey),
+                                ),
                               ],
                             ),
                           ],
