@@ -58,11 +58,11 @@ class _TransactionListState extends State<TransactionList> {
                     ),
                     Container(
                       padding: edges(15, 10),
-                      child: OutlinedButton(
+                      child: IconButton(
                           onPressed: () {
                             setState(() => widget.transactions.removeAt(idx));
                           },
-                          child: Icon(Icons.delete)),
+                          icon: Icon(Icons.delete)),
                     )
                   ],
                 ),
