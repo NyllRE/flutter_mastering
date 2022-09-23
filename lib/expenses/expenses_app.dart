@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'widgets/transaction_list.dart';
-import 'widgets/add_transaction.dart';
-import 'models/transaction.dart';
-import 'package:intl/intl.dart';
+import 'widgets/user_transactions.dart';
+
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({Key? key}) : super(key: key);
@@ -19,24 +17,12 @@ class ExpensesApp extends StatelessWidget {
   }
 }
 
-class RootPage extends StatefulWidget {
+class RootPage extends StatelessWidget {
   const RootPage({Key? key}) : super(key: key);
 
   @override
-  _RootPageState createState() => _RootPageState();
-}
-
-class _RootPageState extends State<RootPage> {
-  @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: Text('bruh')),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            AddTransaction(),
-            TransactionList(),
-          ],
-        ),
+        body: UserTransactions(),
       );
 }
