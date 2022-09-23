@@ -49,7 +49,7 @@ class _AddTransactionState extends State<AddTransaction> {
               onPressed: _adder,
               child: Text(
                 'Add Transaction',
-                style: TextStyle(color: Colors.purple),
+                // style: TextStyle(color: Colors.purple),
               ),
             )
           ]),

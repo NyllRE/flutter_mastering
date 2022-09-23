@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mastering/reusable.dart';
+import '/reusable.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
@@ -16,7 +16,29 @@ class _TransactionListState extends State<TransactionList> {
   @override
   Widget build(BuildContext context) => Container(
       height: 500,
-      child: ListView.builder(
+      child: widget.transactions.isEmpty
+          ? Center(
+              child: Column(
+                children: const [
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Icon(
+                    Icons.airline_seat_individual_suite,
+                    color: Colors.grey,
+                    size: 60,
+                  ),
+                  Text(
+                    'No transactions yet',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                ],
+              ),
+            )
+          : ListView.builder(
           itemCount: widget.transactions.length,
           itemBuilder: (ctx, idx) => Card(
                 child: Row(
@@ -29,6 +51,7 @@ class _TransactionListState extends State<TransactionList> {
                         border: Border.all(
                           color: Colors.purple,
                           width: 2,
+                          
                         ),
                       ),
                       child: Text(

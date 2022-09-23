@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mastering/expenses/widgets/add_transaction.dart';
 import 'package:flutter_mastering/expenses/widgets/transaction_list.dart';
 import 'models/transaction.dart';
-import 'widgets/user_transactions.dart';
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({Key? key}) : super(key: key);
