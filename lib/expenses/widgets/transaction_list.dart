@@ -3,18 +3,24 @@ import 'package:flutter_mastering/reusable.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
-class TransactionList extends StatelessWidget {
+class TransactionList extends StatefulWidget {
   final List<Transaction> transactions;
 
   TransactionList(this.transactions);
 
   @override
+  State<TransactionList> createState() => _TransactionListState();
+}
+
+class _TransactionListState extends State<TransactionList> {
+  @override
   Widget build(BuildContext context) => Container(
       height: 500,
       child: ListView.builder(
-          itemCount: transactions.length,
+          itemCount: widget.transactions.length,
           itemBuilder: (ctx, idx) => Card(
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
                       margin: edges(15, 10),
@@ -26,7 +32,7 @@ class TransactionList extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        '\$${transactions[idx].amount}',
+                        '\$${widget.transactions[idx].amount}',
                         style: TextStyle(
                             color: Colors.purple,
                             fontWeight: FontWeight.bold,
@@ -37,7 +43,7 @@ class TransactionList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          transactions[idx].title,
+                          widget.transactions[idx].title,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -45,11 +51,19 @@ class TransactionList extends StatelessWidget {
                         ),
                         Text(
                           DateFormat('MM dd h:mm a')
-                              .format(transactions[idx].date),
+                              .format(widget.transactions[idx].date),
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
+                    Container(
+                      padding: edges(15, 10),
+                      child: OutlinedButton(
+                          onPressed: () {
+                            setState(() => widget.transactions.removeAt(idx));
+                          },
+                          child: Icon(Icons.delete)),
+                    )
                   ],
                 ),
               )));
