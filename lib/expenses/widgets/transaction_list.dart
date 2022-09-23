@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastering/reusable.dart';
 import 'package:intl/intl.dart';
 import '../models/transaction.dart';
 
@@ -8,20 +9,16 @@ class TransactionList extends StatelessWidget {
   TransactionList(this.transactions);
 
   @override
-  Widget build(BuildContext context) => Column(
-      children: transactions
-          .map((tx) => Card(
+  Widget build(BuildContext context) => Container(
+      height: 500,
+      child: ListView.builder(
+          itemCount: transactions.length,
+          itemBuilder: (ctx, idx) => Card(
                 child: Row(
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15,
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 10,
-                        horizontal: 15,
-                      ),
+                      margin: edges(15, 10),
+                      padding: edges(15, 10),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.purple,
@@ -29,7 +26,7 @@ class TransactionList extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        '\$${tx.amount}',
+                        '\$${transactions[idx].amount}',
                         style: TextStyle(
                             color: Colors.purple,
                             fontWeight: FontWeight.bold,
@@ -40,20 +37,20 @@ class TransactionList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          tx.title,
+                          transactions[idx].title,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         Text(
-                          DateFormat('MM dd h:mm a').format(tx.date),
+                          DateFormat('MM dd h:mm a')
+                              .format(transactions[idx].date),
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],
                     ),
                   ],
                 ),
-              ))
-          .toList());
+              )));
 }

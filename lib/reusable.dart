@@ -40,3 +40,13 @@ class Rotate extends StatelessWidget {
         child: child,
       );
 }
+
+EdgeInsets pads = EdgeInsets.symmetric(vertical: 10, horizontal: 15);
+
+EdgeInsets edges(double l, double t, {double r = 0.00001, double b = 0}) {
+  if (r == 0.00001) {
+    return EdgeInsets.symmetric(vertical: l, horizontal: t);
+  } else {
+    return EdgeInsets.fromLTRB(l, t, r, b);
+  }
+}
