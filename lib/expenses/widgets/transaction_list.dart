@@ -35,6 +35,10 @@ class _TransactionListState extends State<TransactionList> {
                         fontWeight: FontWeight.bold,
                         fontSize: 25),
                   ),
+                  Text(
+                    'press the + button above to add some',
+                    style: TextStyle(color: Colors.grey),
+                  ),
                 ],
               ),
             )
