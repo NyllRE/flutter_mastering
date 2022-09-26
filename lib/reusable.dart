@@ -43,10 +43,15 @@ class Rotate extends StatelessWidget {
 
 EdgeInsets pads = EdgeInsets.symmetric(vertical: 10, horizontal: 15);
 
-EdgeInsets edges(double l, double t, {double r = 0.00001, double b = 0}) {
-  if (r == 0.00001) {
+EdgeInsets edges(double l, {double? t, double? r, double? b}) {
+  if (t == null && r == null && b == null) {
+    return EdgeInsets.all(l);
+  } else if (t != null && r == null && b == null) {
     return EdgeInsets.symmetric(vertical: l, horizontal: t);
   } else {
+    t = t ?? 0;
+    r = r ?? 0;
+    b = b ?? 0;
     return EdgeInsets.fromLTRB(l, t, r, b);
   }
 }
