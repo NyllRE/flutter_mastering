@@ -43,7 +43,7 @@ class Rotate extends StatelessWidget {
 
 EdgeInsets pads = EdgeInsets.symmetric(vertical: 10, horizontal: 15);
 
-EdgeInsets edges(double l, {double? t, double? r, double? b}) {
+EdgeInsets Edge(double l, {double? t, double? r, double? b}) {
   if (t == null && r == null && b == null) {
     return EdgeInsets.all(l);
   } else if (t != null && r == null && b == null) {

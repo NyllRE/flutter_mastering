@@ -48,6 +48,8 @@ class _RootPageState extends State<RootPage> {
       amount: tAmount,
     );
 
+  
+
     setState(() {
       _transactions.add(newT);
     });

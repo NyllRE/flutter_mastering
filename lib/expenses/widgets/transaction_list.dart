@@ -49,13 +49,12 @@ class _TransactionListState extends State<TransactionList> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      margin: edges(15, 10),
-                      padding: edges(15, 10),
+                          margin: Edge(15, t: 10),
+                          padding: Edge(15, t: 10),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.purple,
-                          width: 2,
-                          
+                              width: 2,
                         ),
                       ),
                       child: Text(
@@ -84,7 +83,7 @@ class _TransactionListState extends State<TransactionList> {
                       ],
                     ),
                     Container(
-                      padding: edges(15, 10),
+                          padding: Edge(15, t: 10),
                       child: IconButton(
                           onPressed: () {
                             setState(() => widget.transactions.removeAt(idx));

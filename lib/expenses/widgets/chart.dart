@@ -34,20 +34,30 @@ class Chart extends StatelessWidget {
     );
   }
 
+  double get maxSpending {
+    return transactionValues.fold(0, (prevSum, item) {
+      return prevSum + (item['amount'] as double) ?? 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     debugPrint(transactionValues.toString());
     return Card(
       elevation: 6,
-      margin: edges(20, 20),
-      child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: transactionValues
-              .map((data) => ChartBar(
-                  label: data['name'].toString(),
-                  spendingAmount: double.parse(data['amount'].toString()),
-                  spendingPctOfTotal: 0))
-              .toList()),
+      margin: Edge(20),
+      child: Padding(
+        padding: Edge(10),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: transactionValues
+                .map((data) => ChartBar(
+                    label: data['day'].toString(),
+                    spendingAmount: double.parse(data['amount'].toString()),
+                    spendingPctOfTotal:
+                        (data['amount'] as double) / maxSpending))
+                .toList()),
+      ),
     );
   }
 }

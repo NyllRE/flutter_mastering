@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mastering/reusable.dart';
 
 class Answer extends StatelessWidget {
   final String answerText;
@@ -13,7 +14,7 @@ class Answer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+      margin: Edge(0, t: 20, r: 0, b: 0),
       child: ElevatedButton(
         child: Text(answerText),
         onPressed: selectHandler,
