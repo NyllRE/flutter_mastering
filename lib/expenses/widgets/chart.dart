@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastering/expenses/models/transaction.dart';
+import 'package:flutter_mastering/expenses/widgets/chart_bar.dart';
 import 'package:flutter_mastering/reusable.dart';
 import 'package:intl/intl.dart';
 
@@ -26,7 +27,7 @@ class Chart extends StatelessWidget {
         debugPrint(DateFormat.E().format(weekDay));
         return {
           //=>> DateFormat.E() is a shortcut for weekday
-          'day': DateFormat.E().format(weekDay),
+          'day': DateFormat.E().format(weekDay).substring(0, 1),
           'amount': totalSum,
         };
       },
@@ -39,7 +40,14 @@ class Chart extends StatelessWidget {
     return Card(
       elevation: 6,
       margin: edges(20, 20),
-      child: Row(children: []),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: transactionValues
+              .map((data) => ChartBar(
+                  label: data['name'].toString(),
+                  spendingAmount: double.parse(data['amount'].toString()),
+                  spendingPctOfTotal: 0))
+              .toList()),
     );
   }
 }
