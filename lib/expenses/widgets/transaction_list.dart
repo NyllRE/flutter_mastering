@@ -5,8 +5,9 @@ import '../models/transaction.dart';
 
 class TransactionList extends StatefulWidget {
   final List<Transaction> transactions;
+  final Function removeTransaction;
 
-  TransactionList(this.transactions);
+  TransactionList(this.transactions, this.removeTransaction);
 
   @override
   State<TransactionList> createState() => _TransactionListState();
@@ -43,54 +44,54 @@ class _TransactionListState extends State<TransactionList> {
               ),
             )
           : ListView.builder(
-          itemCount: widget.transactions.length,
-          itemBuilder: (ctx, idx) => Card(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
+              itemCount: widget.transactions.length,
+              itemBuilder: (ctx, idx) => Card(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
                           margin: Edge(15, t: 10),
                           padding: Edge(15, t: 10),
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.purple,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Colors.purple,
                               width: 2,
-                        ),
-                      ),
-                      child: Text(
-                        '\$${widget.transactions[idx].amount}',
-                        style: TextStyle(
-                            color: Colors.purple,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          widget.transactions[idx].title,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          child: Text(
+                            '\$${widget.transactions[idx].amount}',
+                            style: TextStyle(
+                                color: Colors.purple,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20),
                           ),
                         ),
-                        Text(
-                          DateFormat('MM dd h:mm a')
-                              .format(widget.transactions[idx].date),
-                          style: TextStyle(color: Colors.grey),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.transactions[idx].title,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              DateFormat('MM dd h:mm a')
+                                  .format(widget.transactions[idx].date),
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                          ],
                         ),
+                        Container(
+                          padding: Edge(15, t: 10),
+                          child: IconButton(
+                              onPressed: () {
+                                setState(() => widget.removeTransaction(idx));
+                              },
+                              icon: Icon(Icons.delete)),
+                        )
                       ],
                     ),
-                    Container(
-                          padding: Edge(15, t: 10),
-                      child: IconButton(
-                          onPressed: () {
-                            setState(() => widget.transactions.removeAt(idx));
-                          },
-                          icon: Icon(Icons.delete)),
-                    )
-                  ],
-                ),
-              )));
+                  )));
 }

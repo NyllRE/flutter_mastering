@@ -48,8 +48,6 @@ class _RootPageState extends State<RootPage> {
       amount: tAmount,
     );
 
-  
-
     setState(() {
       _transactions.add(newT);
     });
@@ -60,6 +58,12 @@ class _RootPageState extends State<RootPage> {
       context: ctx,
       builder: (_) => AddTransaction(_addTransaction),
     );
+  }
+
+  void _removeTransaction(int idx) {
+    setState(() {
+      _transactions.removeAt(idx);
+    });
   }
 
   @override
@@ -76,7 +80,7 @@ class _RootPageState extends State<RootPage> {
         body: Column(
           children: [
             Chart(recentTransactions: _recentTransactions as List<Transaction>),
-            TransactionList(_transactions),
+            TransactionList(_transactions, _removeTransaction),
           ],
         ),
       );

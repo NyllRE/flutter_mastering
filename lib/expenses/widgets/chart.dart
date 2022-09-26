@@ -24,7 +24,6 @@ class Chart extends StatelessWidget {
             totalSum += rt.amount;
           }
         }
-        debugPrint(DateFormat.E().format(weekDay));
         return {
           //=>> DateFormat.E() is a shortcut for weekday
           'day': DateFormat.E().format(weekDay).substring(0, 1),
@@ -42,7 +41,6 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(transactionValues.toString());
     return Card(
       elevation: 6,
       margin: Edge(20),
