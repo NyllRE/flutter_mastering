@@ -17,10 +17,9 @@ class ChartBar extends StatelessWidget {
       children: [
         Text('\$${spendingAmount.toStringAsFixed(0)}'),
         SizedBox(height: 4),
-        Container(
+        SizedBox(
           height: 60,
           width: 10,
-          // color: Colors.blue,
           child: Stack(children: [
             Container(
               decoration: BoxDecoration(

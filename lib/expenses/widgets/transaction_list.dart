@@ -15,8 +15,9 @@ class TransactionList extends StatefulWidget {
 
 class _TransactionListState extends State<TransactionList> {
   @override
-  Widget build(BuildContext context) => Container(
-      height: 500,
+  Widget build(BuildContext context) => Expanded(
+      child: SizedBox(
+          height: 500,
       child: widget.transactions.isEmpty
           ? Center(
               child: Column(
@@ -87,11 +88,13 @@ class _TransactionListState extends State<TransactionList> {
                           padding: Edge(15, t: 10),
                           child: IconButton(
                               onPressed: () {
-                                setState(() => widget.removeTransaction(idx));
+                                    setState(() {
+                                      widget.removeTransaction(idx);
+                                    });
                               },
                               icon: Icon(Icons.delete)),
                         )
                       ],
                     ),
-                  )));
+                      ))));
 }

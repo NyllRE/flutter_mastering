@@ -45,15 +45,16 @@ class Chart extends StatelessWidget {
       elevation: 6,
       margin: Edge(20),
       child: Padding(
-        padding: Edge(10),
+        padding: Edge(10, t: 20),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: transactionValues
                 .map((data) => ChartBar(
                     label: data['day'].toString(),
                     spendingAmount: double.parse(data['amount'].toString()),
-                    spendingPctOfTotal:
-                        (data['amount'] as double) / maxSpending))
+                    spendingPctOfTotal: data['amount'] != 0
+                        ? (data['amount'] as double) / maxSpending
+                        : 0))
                 .toList()),
       ),
     );
