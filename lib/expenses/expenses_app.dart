@@ -35,6 +35,12 @@ class _RootPageState extends State<RootPage> {
     Transaction(id: 'or8', title: 'Yeezys', amount: 69.99),
   ];
 
+  List get _recentTransactions => _transactions
+      .where(
+        (tx) => tx.date.isAfter(DateTime.now().subtract(Duration(days: 7))),
+      )
+      .toList();
+
   void _addTransaction(String tTitle, double tAmount) {
     final newT = Transaction(
       id: DateTime.now().toString(),
@@ -67,7 +73,7 @@ class _RootPageState extends State<RootPage> {
         ),
         body: Column(
           children: [
-            Chart(recentTransactions: _transactions),
+            Chart(recentTransactions: _recentTransactions as List<Transaction>),
             TransactionList(_transactions),
           ],
         ),

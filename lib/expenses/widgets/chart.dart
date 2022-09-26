@@ -15,7 +15,7 @@ class Chart extends StatelessWidget {
       7,
       (idx) {
         final weekDay = DateTime.now().subtract(Duration(days: idx));
-        late double totalSum;
+        double totalSum = 0;
         for (var rt in recentTransactions) {
           if (rt.date.day == weekDay.day &&
               rt.date.month == weekDay.month &&
@@ -23,9 +23,10 @@ class Chart extends StatelessWidget {
             totalSum += rt.amount;
           }
         }
+        debugPrint(DateFormat.E().format(weekDay));
         return {
           //=>> DateFormat.E() is a shortcut for weekday
-          'day': DateFormat.E(weekDay),
+          'day': DateFormat.E().format(weekDay),
           'amount': totalSum,
         };
       },
@@ -34,6 +35,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(transactionValues.toString());
     return Card(
       elevation: 6,
       margin: edges(20, 20),
