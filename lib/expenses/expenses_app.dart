@@ -12,7 +12,7 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
       title: 'Randomizer',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.green,
       ),
       home: const RootPage(),
     );

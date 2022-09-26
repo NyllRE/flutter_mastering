@@ -32,7 +32,7 @@ class _TransactionWidgetState extends State<TransactionWidget> {
             padding: Edge(15, t: 10),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.purple,
+                color: Theme.of(context).primaryColor,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(5),
@@ -40,7 +40,7 @@ class _TransactionWidgetState extends State<TransactionWidget> {
             child: Text(
               '\$${widget.transactions[widget.idx].amount}',
               style: TextStyle(
-                  color: Colors.purple,
+                  color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.bold,
                   fontSize: 20),
             ),
