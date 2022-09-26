@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mastering/expenses/widgets/add_transaction.dart';
+import 'package:flutter_mastering/expenses/widgets/chart.dart';
 import 'package:flutter_mastering/expenses/widgets/transaction_list.dart';
 import 'models/transaction.dart';
 
@@ -64,6 +65,11 @@ class _RootPageState extends State<RootPage> {
             ),
           ],
         ),
-        body: TransactionList(_transactions),
+        body: Column(
+          children: [
+            Chart(recentTransactions: _transactions),
+            TransactionList(_transactions),
+          ],
+        ),
       );
 }
