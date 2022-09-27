@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AddTransaction extends StatefulWidget {
@@ -27,6 +28,14 @@ class _AddTransactionState extends State<AddTransaction> {
     Navigator.of(context).pop();
   }
 
+  void _showDatePicker() {
+    showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2022),
+        lastDate: DateTime.now());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -44,6 +53,18 @@ class _AddTransactionState extends State<AddTransaction> {
               keyboardType: TextInputType.number,
               onSubmitted: (_) => _adder,
               controller: amountCon,
+            ),
+            SizedBox(
+              height: 70,
+              child: Row(children: [
+                Text('No Date Chosen'),
+                TextButton(
+                    onPressed: _showDatePicker,
+                    child: Text(
+                      'Choose Date',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    )),
+              ]),
             ),
             TextButton(
               onPressed: _adder,
