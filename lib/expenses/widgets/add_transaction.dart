@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class AddTransaction extends StatefulWidget {
@@ -65,8 +64,8 @@ class _AddTransactionState extends State<AddTransaction> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     )),
               ]),
-            ),
-            TextButton(
+            ), //=> td: SAVE THE DATE DATA NOW
+            OutlinedButton(
               onPressed: _adder,
               child: Text(
                 'Add Transaction',
