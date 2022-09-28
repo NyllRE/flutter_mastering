@@ -25,61 +25,62 @@ class _TransactionWidgetState extends State<TransactionWidget> {
   Widget build(BuildContext context) {
     return Card(
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            margin: Edge(15, t: 10),
-            padding: Edge(15, t: 10),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Theme.of(context).primaryColor,
-                width: 1,
-              ),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Text(
-              '\$${widget.transactions[widget.idx].amount}',
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
-            ),
-          ),
-          SizedBox(
-            width: double.infinity,
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      widget.transactions[widget.idx].title,
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      DateFormat('MM dd h:mm a')
-                          .format(widget.transactions[widget.idx].date),
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ],
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                margin: Edge(15, t: 10),
+                padding: Edge(15, t: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Theme.of(context).primaryColor,
+                    width: 1,
+                  ),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                Container(
-                  padding: Edge(15, t: 10),
-                  // width: double.infinity,
-                  child: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          widget.removeTransaction(widget.idx);
-                        });
-                      },
-                      icon: Icon(Icons.delete)),
-                )
-              ],
-            ),
+                child: Text(
+                  '\$${widget.transactions[widget.idx].amount}',
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20),
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.transactions[widget.idx].title,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    DateFormat('MM dd h:mm a')
+                        .format(widget.transactions[widget.idx].date),
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ],
           ),
+          Container(
+            padding: Edge(15, t: 10),
+            // width: double.infinity,
+            child: IconButton(
+                onPressed: () {
+                  setState(() {
+                    widget.removeTransaction(widget.idx);
+                  });
+                },
+                icon: Icon(Icons.delete)),
+          )
         ],
       ),
     );
